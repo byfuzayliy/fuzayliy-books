@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fuzayliy Books</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="icon" type="image/png" href="./assets/favicon.png" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <div class="container">
+        <nav class="navbar">
+          <!-- Logo -->
+          <a href="./index.html" class="logo">
+            <!-- <i class="fas fa-book"></i> -->
+            <span><b>f</b></span> Books
+          </a>
+
+          <!-- Mobile Menu Toggle -->
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+
+          <ul class="navbar-list">
+            <li>
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <a href="#home">Blogs</a>
+            </li>
+            <li>
+              <a href="#home">Quotes</a>
+            </li>
+          </ul>
+
+          <!-- Categories -->
+          <div class="nav-categories">
+            <label for="categories" class="visually-hidden">Categories</label>
+            <select name="categories" id="categories">
+              <option value="all">All Categories</option>
+              <option value="fiction">Fiction</option>
+              <option value="non-fiction">Non-Fiction</option>
+              <option value="biography">Biography & Memoir</option>
+              <option value="poetry">Poetry</option>
+              <option value="classics">Classics</option>
+            </select>
+          </div>
+
+          <!-- Search -->
+          <form action="#" class="nav-search" role="search">
+            <label for="search" class="visually-hidden">Search Books</label>
+            <input
+              type="text"
+              id="search"
+              name="search"
+              placeholder="Search books..."
+            />
+            <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
+
+          <!-- Buttons -->
+          <div class="nav-actions">
+            <button type="button" id="cart-shopping">
+              <i class="fas fa-cart-shopping"></i>
+            </button>
+            <button type="button" id="mode-toggle">
+              <i class="fas fa-moon"></i>
+            </button>
+            <button type="button" id="signup-btn">
+              <i class="fas fa-user-plus"></i> Sign Up
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main></main>
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3 class="footer-logo"><span>Fuzayliy</span> Books</h3>
+            <p>
+              Your trusted source for quality books since 2010. We're passionate
+              about connecting readers with great literature.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Browse Books</a></li>
+              <li><a href="#">New Arrivals</a></li>
+              <li><a href="#">Bestsellers</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Customer Service</h3>
+            <ul>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Shipping Info</a></li>
+              <li><a href="#">Returns</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Connect With Us</h3>
+            <ul>
+              <li>
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+              </li>
+              <li>
+                <a href="#"><i class="fab fa-goodreads"></i> Goodreads</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 Fuzayliy Books. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Dark Mode Toggle
+      const modeToggle = document.getElementById("mode-toggle");
+      const modeIcon = modeToggle.querySelector("i");
+
+      modeToggle.addEventListener("click", () => {
+        document.body.dataset.theme =
+          document.body.dataset.theme === "dark" ? "light" : "dark";
+
+        if (document.body.dataset.theme === "dark") {
+          modeIcon.className = "fas fa-sun";
+          modeToggle.innerHTML = '<i class="fas fa-sun"></i> ';
+        } else {
+          modeIcon.className = "fas fa-moon";
+          modeToggle.innerHTML = '<i class="fas fa-moon"></i> ';
+        }
+      });
+
+      // Mobile Menu Toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navbar = document.querySelector(".navbar");
+
+      menuToggle.addEventListener("click", () => {
+        navbar.classList.toggle("active");
+
+        const icon = menuToggle.querySelector("i");
+        if (navbar.classList.contains("active")) {
+          icon.className = "fas fa-times";
+        } else {
+          icon.className = "fas fa-bars";
+        }
+      });
+
+      // Search Functionality (Basic)
+      const searchForm = document.querySelector(".nav-search");
+      searchForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const searchTerm = document.getElementById("search").value;
+        if (searchTerm.trim()) {
+          alert(`Searching for: ${searchTerm}`);
+          // In a real application, you would redirect to search results page
+          // or filter the displayed books
+        }
+      });
+    </script>
+  </body>
+</html>
